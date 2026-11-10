@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   LayoutDashboard,
   UtensilsCrossed,
   Bike,
   ShoppingBag,
-  Settings,
-  Users,
   Search,
   CheckCircle,
   Clock,
-  MapPin,
   TrendingUp,
 } from 'lucide-react';
 
