@@ -139,3 +139,4 @@ app.get('/api/merchants/nearby', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Zupit Backend running on port ${PORT}`);
 });
+
