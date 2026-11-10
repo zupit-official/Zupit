@@ -19,7 +19,7 @@ export default function App() {
       <aside className="w-64 bg-[#1E1E1E] text-white flex flex-col">
         <div className="p-5 border-b border-neutral-800">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-[#961E1E] flex items-center justify-center font-black text-xl">
+            <div className="w-8 h-8 rounded-lg bg-[#9c1c21] flex items-center justify-center font-black text-xl">
               Z
             </div>
             <div>
@@ -33,7 +33,7 @@ export default function App() {
           <button
             onClick={() => setActiveTab('overview')}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-              activeTab === 'overview' ? 'bg-[#961E1E] text-white' : 'text-neutral-300 hover:bg-neutral-800'
+              activeTab === 'overview' ? 'bg-[#9c1c21] text-white' : 'text-neutral-300 hover:bg-neutral-800'
             }`}
           >
             <LayoutDashboard className="w-4 h-4" />
@@ -43,7 +43,7 @@ export default function App() {
           <button
             onClick={() => setActiveTab('orders')}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-              activeTab === 'orders' ? 'bg-[#961E1E] text-white' : 'text-neutral-300 hover:bg-neutral-800'
+              activeTab === 'orders' ? 'bg-[#9c1c21] text-white' : 'text-neutral-300 hover:bg-neutral-800'
             }`}
           >
             <ShoppingBag className="w-4 h-4" />
@@ -56,7 +56,7 @@ export default function App() {
           <button
             onClick={() => setActiveTab('restaurants')}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-              activeTab === 'restaurants' ? 'bg-[#961E1E] text-white' : 'text-neutral-300 hover:bg-neutral-800'
+              activeTab === 'restaurants' ? 'bg-[#9c1c21] text-white' : 'text-neutral-300 hover:bg-neutral-800'
             }`}
           >
             <UtensilsCrossed className="w-4 h-4" />
@@ -66,7 +66,7 @@ export default function App() {
           <button
             onClick={() => setActiveTab('riders')}
             className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-              activeTab === 'riders' ? 'bg-[#961E1E] text-white' : 'text-neutral-300 hover:bg-neutral-800'
+              activeTab === 'riders' ? 'bg-[#9c1c21] text-white' : 'text-neutral-300 hover:bg-neutral-800'
             }`}
           >
             <Bike className="w-4 h-4" />
@@ -97,7 +97,7 @@ export default function App() {
               <input
                 type="text"
                 placeholder="Search orders, phone numbers, restaurants..."
-                className="w-full pl-9 pr-4 py-2 bg-slate-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#961E1E]"
+                className="w-full pl-9 pr-4 py-2 bg-slate-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#9c1c21]"
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ export default function App() {
                   <h2 className="font-bold text-slate-900">Recent Live Orders</h2>
                   <button
                     onClick={() => setActiveTab('orders')}
-                    className="text-xs font-bold text-[#961E1E] hover:underline"
+                    className="text-xs font-bold text-[#9c1c21] hover:underline"
                   >
                     View All Orders →
                   </button>
@@ -166,7 +166,7 @@ export default function App() {
                 <div className="divide-y divide-slate-100">
                   <div className="p-4 flex items-center justify-between hover:bg-slate-50">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-red-50 text-[#961E1E] flex items-center justify-center font-bold text-sm">
+                      <div className="w-10 h-10 rounded-lg bg-red-50 text-[#9c1c21] flex items-center justify-center font-bold text-sm">
                         #1042
                       </div>
                       <div>
@@ -178,7 +178,7 @@ export default function App() {
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700">
                         <Clock className="w-3.5 h-3.5" /> Food Preparing
                       </span>
-                      <button className="px-3 py-1.5 bg-[#961E1E] text-white rounded-lg text-xs font-semibold hover:bg-[#831717]">
+                      <button className="px-3 py-1.5 bg-[#9c1c21] text-white rounded-lg text-xs font-semibold hover:bg-[#87181c]">
                         Assign Rider
                       </button>
                     </div>
@@ -222,7 +222,7 @@ export default function App() {
                   <h2 className="text-lg font-bold text-slate-900">Registered Restaurants in Jamui</h2>
                   <p className="text-sm text-slate-500">Manage store listings, menus, and item availability</p>
                 </div>
-                <button className="px-4 py-2 bg-[#961E1E] text-white rounded-lg text-sm font-semibold hover:bg-[#831717]">
+                <button className="px-4 py-2 bg-[#9c1c21] text-white rounded-lg text-sm font-semibold hover:bg-[#87181c]">
                   + Add New Restaurant
                 </button>
               </div>
@@ -236,7 +236,7 @@ export default function App() {
                       Open & Accepting
                     </span>
                   </div>
-                  <button className="text-xs font-semibold text-[#961E1E] border border-[#961E1E] px-3 py-1.5 rounded-lg hover:bg-red-50">
+                  <button className="text-xs font-semibold text-[#9c1c21] border border-[#9c1c21] px-3 py-1.5 rounded-lg hover:bg-red-50">
                     Edit Menu
                   </button>
                 </div>
@@ -249,7 +249,7 @@ export default function App() {
                       Open & Accepting
                     </span>
                   </div>
-                  <button className="text-xs font-semibold text-[#961E1E] border border-[#961E1E] px-3 py-1.5 rounded-lg hover:bg-red-50">
+                  <button className="text-xs font-semibold text-[#9c1c21] border border-[#9c1c21] px-3 py-1.5 rounded-lg hover:bg-red-50">
                     Edit Menu
                   </button>
                 </div>

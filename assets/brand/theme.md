@@ -1,19 +1,18 @@
 # Zupit Brand Design Tokens
 
-## Colors
-- **Primary Maroon / Crimson**: `#961E1E` (Main logo hue, CTAs, headers)
-- **Primary Dark**: `#781414` (Pressed state, active tabs)
-- **Primary Light / Tint**: `#FDEEEE` (Selected backgrounds, badge tint)
+## Official Brand Colors
+- **Primary Brand Red / Crimson**: `#9c1c21` (Official brand color)
+- **Primary Dark**: `#7a1418` (Pressed state, active tabs)
+- **Primary Light / Tint**: `#fae8e9` (Selected backgrounds, badge tint)
 - **Secondary Accent**: `#F39C12` (Ratings, active warnings, delivery indicator)
 - **Success Green**: `#27AE60` (Order placed, delivered, active status)
-- **Background White**: `#FFFFFF`
+- **Background White**: `#ffffff` (Pure white)
 - **Surface Off-White**: `#F8F9FA` (Card backgrounds)
 - **Text Main**: `#1E1E1E`
 - **Text Secondary / Muted**: `#6C757D`
 - **Border / Divider**: `#E9ECEF`
 
-## Typography
-- Headings: Bold / Rounded Sans-Serif
-- Body: Inter / System default sans-serif
-
-8y5omyF8IXA2IqAo
+## Brand Assets
+- Logo Full SVG: `assets/brand/zupit-full.svg`
+- Logo Monogram Z SVG: `assets/brand/zupit-z.svg`
+- Brand Wallpaper / Pattern: `assets/brand/zupit-pattern.jpg`

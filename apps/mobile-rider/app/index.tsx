@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   activeModeButton: {
-    backgroundColor: '#961E1E',
+    backgroundColor: '#9c1c21',
   },
   modeText: {
     fontSize: 13,
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   earningsCard: {
-    backgroundColor: '#961E1E',
+    backgroundColor: '#9c1c21',
     borderRadius: 14,
     padding: 18,
     marginBottom: 16,
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
   requestType: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#961E1E',
+    color: '#9c1c21',
   },
   payout: {
     fontSize: 16,
