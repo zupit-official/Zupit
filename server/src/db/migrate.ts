@@ -18,6 +18,7 @@ async function migrate() {
         phone VARCHAR(15) UNIQUE NOT NULL,
         name VARCHAR(100),
         email VARCHAR(100),
+        password_hash VARCHAR(255),
         role VARCHAR(20) NOT NULL DEFAULT 'customer' CHECK (role IN ('customer', 'rider', 'merchant', 'admin')),
         is_active BOOLEAN DEFAULT TRUE,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,

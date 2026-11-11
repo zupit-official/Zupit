@@ -21,7 +21,10 @@
       },
       "package": "com.zupit.customer"
     },
-    "scheme": "zupit"
+    "scheme": "zupit",
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
 

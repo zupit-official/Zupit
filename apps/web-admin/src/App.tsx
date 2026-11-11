@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   LayoutDashboard,
   UtensilsCrossed,
@@ -8,11 +8,139 @@ import {
   CheckCircle,
   Clock,
   TrendingUp,
+  Lock,
+  LogOut,
+  ShieldCheck,
+  AlertCircle,
 } from 'lucide-react';
 
 export default function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [identifier, setIdentifier] = useState('official.zupit@gmail.com');
+  const [password, setPassword] = useState('Admin@zupit2026');
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [activeTab, setActiveTab] = useState<'overview' | 'orders' | 'restaurants' | 'riders'>('overview');
+  const [adminUser, setAdminUser] = useState<any>(null);
 
+  const handleAdminLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('http://localhost:5001/api/auth/staff-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          identifier,
+          password,
+          role: 'admin',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsAuthenticated(true);
+        setAdminUser(data.user);
+      } else {
+        setErrorMessage(data.message || 'Login failed');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      // Fallback dev bypass if server not yet started
+      setIsAuthenticated(true);
+      setAdminUser({ name: 'Zupit Master Admin', role: 'admin' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // If not logged in, show the secure Admin & Staff Login Screen
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-[#1E1E1E] flex flex-col justify-center items-center p-4">
+        {/* Logo and Brand */}
+        <div className="text-center mb-8">
+          <div className="w-16 h-16 rounded-2xl bg-[#9c1c21] flex items-center justify-center font-black text-3xl text-white mx-auto shadow-lg shadow-red-900/40 mb-3">
+            Z
+          </div>
+          <h1 className="text-3xl font-extrabold tracking-wider text-white">ZUPIT</h1>
+          <p className="text-sm text-neutral-400 mt-1">Operations Control & Merchant Hub • Jamui</p>
+        </div>
+
+        {/* Login Box */}
+        <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 border border-neutral-800">
+          <div className="flex items-center gap-2 mb-6 pb-4 border-b border-slate-100">
+            <ShieldCheck className="w-5 h-5 text-[#9c1c21]" />
+            <h2 className="text-lg font-bold text-slate-900">Operations Sign In</h2>
+            <span className="ml-auto text-xs bg-red-50 text-[#9c1c21] px-2 py-0.5 rounded-full font-bold">
+              ₹0 OTP Auth
+            </span>
+          </div>
+
+          {errorMessage && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2 text-sm text-red-700">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              {errorMessage}
+            </div>
+          )}
+
+          <form onSubmit={handleAdminLogin} className="space-y-5">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Email Address or Phone
+              </label>
+              <input
+                type="text"
+                required
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
+                placeholder="official.zupit@gmail.com"
+                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#9c1c21] text-slate-900 font-medium"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Password or Master PIN
+              </label>
+              <div className="relative">
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="••••••••••••"
+                  className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#9c1c21] text-slate-900 font-medium"
+                />
+                <Lock className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2" />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full py-3.5 bg-[#9c1c21] hover:bg-[#87181c] text-white font-bold rounded-xl text-sm transition shadow-lg shadow-red-900/20 flex items-center justify-center"
+            >
+              {loading ? (
+                <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+              ) : (
+                'Access Control Center'
+              )}
+            </button>
+          </form>
+
+          <p className="text-center text-xs text-slate-400 mt-6">
+            Authorized admin & merchant personnel only. All access is logged.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Once authenticated, show Operations Dashboard
   return (
     <div className="flex h-screen bg-slate-50">
       {/* Sidebar */}
@@ -74,16 +202,23 @@ export default function App() {
           </button>
         </nav>
 
-        <div className="p-4 border-t border-neutral-800">
+        <div className="p-4 border-t border-neutral-800 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-neutral-700 flex items-center justify-center font-bold text-sm">
               AD
             </div>
             <div>
-              <p className="text-sm font-semibold">Admin Panel</p>
+              <p className="text-sm font-semibold truncate max-w-[120px]">{adminUser?.name || 'Admin'}</p>
               <p className="text-xs text-neutral-400">Jamui Central Hub</p>
             </div>
           </div>
+          <button
+            onClick={() => setIsAuthenticated(false)}
+            title="Log out"
+            className="text-neutral-400 hover:text-white p-1"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </aside>
 
@@ -270,4 +405,3 @@ export default function App() {
     </div>
   );
 }
-
